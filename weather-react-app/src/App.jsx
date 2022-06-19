@@ -25,7 +25,17 @@ function App() {
             </div>
           </div>
         </div>
-        <div id="today-weather"></div>
+        <div id="weather-app">
+          <div id="city-weather-display">
+            <div>
+              <h1>Delhi</h1>
+            </div>
+          </div>
+          <div id="graph-week-display">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
       </div>
     </div>
   );
