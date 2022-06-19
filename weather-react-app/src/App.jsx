@@ -10,7 +10,22 @@ function App() {
   return (
     <div className="App">
       <div id="weather-app-main-div">
-        <h1>Weather App</h1>
+        <div id="navbar">
+          <h1>Weather app</h1>
+          <div>
+            <div class="navbar-search">
+              <input
+                type="text"
+                class="navbar-search-txt"
+                placeholder="Search city >>>"
+              />
+              <button class="navbar-search-btn">
+                <i class="fa fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="today-weather"></div>
       </div>
     </div>
   );
