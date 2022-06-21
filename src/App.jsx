@@ -1,3 +1,4 @@
+// importing all required tools
 import { useState, useEffect } from "react";
 import "./App.css";
 import {
@@ -14,6 +15,7 @@ import {
 import { Pie, Line } from "react-chartjs-2";
 import axios from "axios";
 
+// registering chart all required data
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -25,8 +27,12 @@ ChartJS.register(
   Legend,
 );
 
+// main app function
 function App() {
+  // Today date
   const date = new Date();
+
+  // week names to show on day
   const week = [
     "Sunday",
     "Monday",
@@ -37,6 +43,7 @@ function App() {
     "Saturday",
   ];
 
+  // months name to show on day
   const months = [
     "Jan",
     "Feb",
@@ -52,6 +59,7 @@ function App() {
     "Dec",
   ];
 
+  // Today date prop to show
   const today =
     week[date.getDay()] +
     ", " +
@@ -61,6 +69,7 @@ function App() {
     " " +
     date.getFullYear();
 
+  // declaring all required props
   const [city, setcity] = useState("delhi");
   const [inputBox, setinputBox] = useState("");
 
@@ -74,6 +83,7 @@ function App() {
 
   const [aqi, setaqi] = useState("Good");
 
+  // week days name for weekly data
   const [weekDays, setWeekDays] = useState([
     "Monday",
     "Tuesday",
@@ -84,6 +94,7 @@ function App() {
     "Sunday",
   ]);
 
+  // graph data
   const data = {
     labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
     datasets: [
@@ -97,6 +108,7 @@ function App() {
     ],
   };
 
+  // searched data initialy with fake data
   const [cityData, setcityData] = useState({
     coord: {
       lon: 77.2167,
@@ -141,6 +153,7 @@ function App() {
     cod: 200,
   });
 
+  // useeffect hook for fetch city data on change city prop which changes when user search
   useEffect(() => {
     axios
       .get(
@@ -205,6 +218,7 @@ function App() {
       });
   }, [city]);
 
+  // userEffect hook for changing bachground image
   useEffect(() => {
     document.body.style.background = "none";
 
@@ -233,6 +247,7 @@ function App() {
     document.body.style.backgroundPosition = "center";
   }, [weatherbkgrnd]);
 
+  // useEffect hook for air quality and week data
   useEffect(() => {
     axios
       .get(
@@ -266,11 +281,15 @@ function App() {
     setinputBox(() => value);
   }
 
-  console.log(aqi);
+  // clear console in case forgot remove console.log anywhere
+  console.clear();
 
+  // returning main content to render on screen
   return (
     <div className="App">
+      {/* main weather app */}
       <div id="weather-app-main-div">
+        {/* navbar main div */}
         <div id="navbar">
           <h1>Weather app</h1>
           <div>
@@ -290,8 +309,11 @@ function App() {
             </div>
           </div>
         </div>
+        {/* weather main */}
         <div id="weather-app">
+          {/* city display div */}
           <div id="city-weather-display">
+            {/* city map */}
             <div id="city-map-div">
               <iframe
                 src={`https://www.google.com/maps/embed/v1/place?key=AIzaSyASagaYt-z00y9kyj1IA2mmo_Tvxy497po&q=${city}`}
@@ -303,6 +325,7 @@ function App() {
                 }}
               ></iframe>
             </div>
+            {/* city content */}
             <div id="city-details-div">
               <div>
                 <h1>{cityData.name}</h1>
@@ -339,10 +362,13 @@ function App() {
               </div>
             </div>
           </div>
+          {/* week and grph content main div */}
           <div id="graph-week-display">
+            {/* graph */}
             <div id="graph-div">
               <Line data={data}></Line>
             </div>
+            {/* week main content */}
             <div id="week-display-div">
               {weekDays.map((elem, index) => (
                 <div key={index}>

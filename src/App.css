@@ -1,3 +1,4 @@
+/* App Main div */
 .App {
   text-align: center;
   width: 99%;
@@ -5,6 +6,7 @@
   margin: auto;
 }
 
+/* weather app outer main div */
 #weather-app-main-div {
   width: 80%;
   height: 99%;
@@ -15,6 +17,7 @@
   box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
 }
 
+/* navbar styles */
 #navbar {
   margin: auto;
   display: flex;
@@ -80,6 +83,7 @@
   font-weight: bold;
 }
 
+/* weather app main div */
 #weather-app {
   display: flex;
   align-items: center;
@@ -88,6 +92,7 @@
   height: 87%;
 }
 
+/* city weather display main div */
 #city-weather-display {
   width: 60%;
   height: 100%;
@@ -96,6 +101,7 @@
   align-items: center;
 }
 
+/* city map main div */
 #city-map-div {
   width: 50%;
   height: 250px;
@@ -103,6 +109,7 @@
   border: 1px solid blue;
 }
 
+/* main city content */
 #city-details-div {
   display: flex;
   align-items: center;
@@ -141,6 +148,7 @@
   margin: auto;
 }
 
+/* week details and graph main div */
 #graph-week-display {
   width: 40%;
   height: 100%;
@@ -149,6 +157,7 @@
   flex-direction: column;
 }
 
+/* graph div */
 #graph-div {
   height: 40%;
   width: 90%;
@@ -156,6 +165,7 @@
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+/* week content main div */
 #week-display-div {
   width: 80%;
   height: 50%;
@@ -212,6 +222,7 @@
   margin-bottom: 0px;
 }
 
+/* tablet size screen media query */
 @media only screen and (min-width: 416px) and (max-width: 1024px) {
   .App {
     height: 748px;
@@ -221,6 +232,7 @@
   }
 }
 
+/* mobile size screen media query */
 @media only screen and (min-width: 0px) and (max-width: 415px) {
   .App {
     height: 100%;
