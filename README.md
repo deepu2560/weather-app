@@ -25,7 +25,6 @@
 * JavaScript
 * CSS
 * Media Query
-* Heroku
 * Vercel
 <hr/>
 
