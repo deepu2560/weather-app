@@ -1,15 +1,15 @@
 .App {
   text-align: center;
   width: 99%;
-  height: 715px;
+  height: 680px;
   margin: auto;
 }
 
 #weather-app-main-div {
   width: 80%;
-  height: 95%;
+  height: 99%;
   margin: auto;
-  margin-top: 2.5%;
+  margin-top: 20px;
   background: rgba(255, 255, 255, 0.5);
   border-radius: 30px;
   box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
@@ -22,6 +22,10 @@
   justify-content: space-between;
   padding: 0 5% 0 5%;
   background-color: rgba(0, 0, 0, 0.1);
+}
+
+#navbar > h1 {
+  color: #2f3640;
 }
 
 .navbar-search {
@@ -86,10 +90,123 @@
 #city-weather-display {
   width: 60%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#city-map-div {
+  border: 1px solid blue;
+  width: 50%;
+  height: 250px;
+  margin: auto;
+}
+
+#city-details-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+}
+
+#city-details-div > div:nth-child(1) {
+  text-align: left;
+  width: 50%;
+}
+
+#city-details-div > div:nth-child(1) > h1 {
+  margin: 0px;
+  margin-bottom: 0px;
+  font-size: 600%;
+  color: #2f3640;
+}
+
+#city-details-div > div:nth-child(1) > p {
+  margin-top: 0px;
+  font-weight: bold;
+  color: rgb(21, 42, 28);
+}
+
+#city-details-div > div:nth-child(2) {
+  width: 30%;
+  text-align: left;
+  color: rgb(21, 42, 28);
+}
+
+#city-details-div > div:nth-child(2) > hr {
+  background-color: black;
+  color: black;
+  width: 70%;
+  margin: auto;
 }
 
 #graph-week-display {
   width: 40%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+#graph-div {
+  border: 1px solid red;
+  height: 30%;
+  width: 90%;
+  margin: auto;
+}
+
+#week-display-div {
+  width: 80%;
+  height: 65%;
+  margin: auto;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-corner {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a5a7a9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2f3640;
+}
+
+#week-display-div > div {
+  width: 80%;
+  margin: auto;
+  width: 80%;
+  height: 20%;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+}
+
+#week-display-div > div > h2 {
+  color: #2f3640;
+}
+
+#week-display-div > div > p {
+  color: rgb(21, 42, 28);
+}
+
+#week-display-div > hr {
+  width: 60%;
+  background-color: aliceblue;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }

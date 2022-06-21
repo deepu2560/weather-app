@@ -12,7 +12,7 @@ function App() {
   const week = [
     "Sunday",
     "Monday",
-    "Tusday",
+    "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
@@ -62,29 +62,29 @@ function App() {
         </div>
         <div id="weather-app">
           <div id="city-weather-display">
-            <div>
+            <div id="city-map-div"></div>
+            <div id="city-details-div">
               <div>
                 <h1>Delhi</h1>
-                <p>{today}</p>
-                <p>Feels like: 34°C</p>
+                <p>
+                  {today} <br /> Feels like: 34°C
+                </p>
               </div>
               <div>
                 <div>
                   <p>
                     <strong>Temp:</strong> 23°C
-                  </p>
-                  <p>
+                    <br />
                     <strong>Max:</strong> 34°C <strong>Min:</strong> 12°C
                   </p>
                 </div>
+                <hr />
                 <div>
                   <p>
                     <strong>Humidity:</strong> 234
-                  </p>
-                  <p>
+                    <br />
                     <strong>Wind speed:</strong> 3.32
-                  </p>
-                  <p>
+                    <br />
                     <strong>AQI:</strong> 234
                   </p>
                 </div>
@@ -92,8 +92,71 @@ function App() {
             </div>
           </div>
           <div id="graph-week-display">
-            <div></div>
-            <div></div>
+            <div id="graph-div"></div>
+            <div id="week-display-div">
+              <div>
+                <h2>Monday</h2>
+                <p>
+                  <strong>Temp:</strong> 23°C
+                  <br />
+                  <strong>Max:</strong> 34°C <strong>Min:</strong> 12°C
+                </p>
+              </div>
+              <hr />
+              <div>
+                <h2>Tuesday</h2>
+                <p>
+                  <strong>Temp:</strong> 23°C
+                  <br />
+                  <strong>Max:</strong> 34°C <strong>Min:</strong> 12°C
+                </p>
+              </div>
+              <hr />
+              <div>
+                <h2>Wednesday</h2>
+                <p>
+                  <strong>Temp:</strong> 23°C
+                  <br />
+                  <strong>Max:</strong> 34°C <strong>Min:</strong> 12°C
+                </p>
+              </div>
+              <hr />
+              <div>
+                <h2>Thursday</h2>
+                <p>
+                  <strong>Temp:</strong> 23°C
+                  <br />
+                  <strong>Max:</strong> 34°C <strong>Min:</strong> 12°C
+                </p>
+              </div>
+              <hr />
+              <div>
+                <h2>Friday</h2>
+                <p>
+                  <strong>Temp:</strong> 23°C
+                  <br />
+                  <strong>Max:</strong> 34°C <strong>Min:</strong> 12°C
+                </p>
+              </div>
+              <hr />
+              <div>
+                <h2>Saturday</h2>
+                <p>
+                  <strong>Temp:</strong> 23°C
+                  <br />
+                  <strong>Max:</strong> 34°C <strong>Min:</strong> 12°C
+                </p>
+              </div>
+              <hr />
+              <div>
+                <h2>Sunday</h2>
+                <p>
+                  <strong>Temp:</strong> 23°C
+                  <br />
+                  <strong>Max:</strong> 34°C <strong>Min:</strong> 12°C
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
