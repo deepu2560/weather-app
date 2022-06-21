@@ -100,6 +100,7 @@
   width: 50%;
   height: 250px;
   margin: auto;
+  border: 1px solid blue;
 }
 
 #city-details-div {
@@ -209,4 +210,54 @@
   background-color: aliceblue;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+@media only screen and (min-width: 416px) and (max-width: 1024px) {
+  .App {
+    height: 748px;
+  }
+  #weather-app-main-div {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 415px) {
+  .App {
+    height: 100%;
+  }
+  #weather-app-main-div {
+    width: 100%;
+  }
+
+  #navbar {
+    flex-direction: column;
+  }
+
+  #weather-app {
+    margin-top: 10px;
+    flex-direction: column;
+  }
+
+  #city-weather-display {
+    width: 100%;
+  }
+
+  #city-map-div {
+    width: 90%;
+  }
+
+  #city-details-div {
+    width: 100%;
+  }
+
+  #city-details-div > div:nth-child(1) > h1 {
+    margin: 0px;
+    margin-bottom: 0px;
+    font-size: 400%;
+    color: #2f3640;
+  }
+
+  #graph-week-display {
+    width: 100%;
+  }
 }
