@@ -96,7 +96,6 @@
 }
 
 #city-map-div {
-  border: 1px solid blue;
   width: 50%;
   height: 250px;
   margin: auto;
@@ -149,15 +148,15 @@
 }
 
 #graph-div {
-  border: 1px solid red;
-  height: 30%;
+  height: 40%;
   width: 90%;
   margin: auto;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #week-display-div {
   width: 80%;
-  height: 65%;
+  height: 50%;
   margin: auto;
   overflow-y: scroll;
 }
@@ -184,7 +183,7 @@
   background: #2f3640;
 }
 
-#week-display-div > div {
+.week-max-min-temp-display-div {
   width: 80%;
   margin: auto;
   width: 80%;
@@ -196,15 +195,15 @@
   text-align: left;
 }
 
-#week-display-div > div > h2 {
+.week-max-min-temp-display-div > h2 {
   color: #2f3640;
 }
 
-#week-display-div > div > p {
+.week-max-min-temp-display-div > p {
   color: rgb(21, 42, 28);
 }
 
-#week-display-div > hr {
+#week-display-div > div > hr {
   width: 60%;
   background-color: aliceblue;
   margin-top: 0px;
