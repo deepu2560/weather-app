@@ -6,7 +6,7 @@ import { MobileView } from "./Component/mobileView/mobileView";
 
 // main app function
 function App() {
-  const [loc, setLoc] = useState([]);
+  const [locState, setLocState] = useState();
 
   useEffect(() => {
     if ("geolocation" in navigator) {
@@ -14,7 +14,7 @@ function App() {
       navigator.geolocation.getCurrentPosition(
         function success(position) {
           // for when getting location is a success
-          setLoc([position.coords.latitude, position.coords.longitude]);
+          getCity([position.coords.latitude, position.coords.longitude]);
         },
         function error(error_message) {
           // for when getting location results in an error
@@ -29,6 +29,35 @@ function App() {
       // get your location some other way
       console.log("geolocation is not enabled on this browser");
     }
+
+    function getCity(loc) {
+      var xhr = new XMLHttpRequest();
+      var lat = loc[0];
+      var lng = loc[1];
+
+      // Paste your LocationIQ token below.
+      xhr.open(
+        "GET",
+        "https://us1.locationiq.com/v1/reverse.php?key=pk.03cf02083f3e74512001032d18384b7b&lat=" +
+          lat +
+          "&lon=" +
+          lng +
+          "&format=json",
+        true,
+      );
+      xhr.send();
+      xhr.onreadystatechange = processRequest;
+      xhr.addEventListener("readystatechange", processRequest, false);
+
+      function processRequest(e) {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var response = JSON.parse(xhr.responseText);
+          var city = response.address.state;
+          setLocState(() => city);
+          return;
+        }
+      }
+    }
   }, []);
 
   // returning main content to render on screen
@@ -38,10 +67,7 @@ function App() {
         <DesktopView />
       </div>
       <div id="mobileView">
-        <MobileView
-          lat={loc[0] ? loc[0].toFixed(4) : loc[0]}
-          lon={loc[1] ? loc[1].toFixed(4) : loc[1]}
-        />
+        <MobileView locState={locState} />
       </div>
     </div>
   );
