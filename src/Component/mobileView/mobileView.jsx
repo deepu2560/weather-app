@@ -15,6 +15,7 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import axios from "axios";
+import { IconsDisplay } from "../weatherIcons/icons";
 
 // registering chart all required data
 ChartJS.register(
@@ -35,6 +36,15 @@ export const MobileView = ({ locState }) => {
   const [city, setCity] = useState("New york");
   const [cityData, setCityData] = useState(null);
   const [weatherData, setWeatherData] = useState();
+
+  const [graphTime, setGraphTime] = useState([
+    "12:00",
+    "1:00",
+    "2:00",
+    "3:00",
+    "4:00",
+  ]);
+  const [graphTemp, setGraphTemp] = useState([27, 28, 29, 30, 30]);
 
   const sampleData = {
     coord: {
@@ -80,12 +90,23 @@ export const MobileView = ({ locState }) => {
     cod: 200,
   };
 
+  // graph data
+  const graphData = {
+    labels: graphTime,
+    datasets: [
+      {
+        label: "temp (°C)",
+        data: graphTemp,
+        backgroundColor: "#2f3640",
+        borderColor: "#2f3640",
+        tension: 0,
+      },
+    ],
+  };
+
   useEffect(() => {
     if (locState) {
       setCity(() => locState);
-      findByCityName();
-    } else {
-      findByCityName();
     }
   });
 
@@ -110,34 +131,45 @@ export const MobileView = ({ locState }) => {
       });
   };
 
-  const findByCityName = () => {
-    axios
-      .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d41c6d489e0a0b8a4a7159509790db66`,
-      )
-      .then(({ data }) => {
-        console.log(data);
-        setCityData(() => data);
-        setLongitude(() => data.coord.lon);
-        setLatitude(() => data.coord.lan);
-      })
-      .catch((err) => {
-        alert("ERROR! City not found search again");
-        setCityData(() => sampleData);
-        setLatitude(() => sampleData.coord.lat);
-        setLongitude(() => sampleData.coord.lon);
-      });
-  };
+  //   useEffect(() => {
+  //     axios
+  //       .get(
+  //         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d41c6d489e0a0b8a4a7159509790db66`,
+  //       )
+  //       .then(({ data }) => {
+  //         console.log(data);
+  //         setCityData(() => data);
+  //         setLongitude(() => data.coord.lon);
+  //         setLatitude(() => data.coord.lan);
+  //       })
+  //       .catch((err) => {
+  //         alert("ERROR! City not found search again");
+  //         setCityData(() => sampleData);
+  //         setLatitude(() => sampleData.coord.lat);
+  //         setLongitude(() => sampleData.coord.lon);
+  //       });
+  //   }, [city]);
 
+  const weekWeather = ["haze", "abc", "windy", "sunny", "rainy"];
   return (
     <div className="mobile-weather-main-div">
       <div id="mobile-search-box">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          fill="currentColor"
+          className="bi bi-geo-alt-fill"
+          viewBox="0 0 16 16"
+        >
+          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
+        </svg>
         <input
           type="text"
           placeholder="Search city..."
           id="mobile-search-input"
         />
-        <button id="mobile-search-button">
+        <button className="mobile-search-icon">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="100%"
@@ -153,9 +185,40 @@ export const MobileView = ({ locState }) => {
       <div id="mobile-weeks-main-div">
         {[2, 3, 4, 4, 3, 2, 1, 4].map((elem, idx) => {
           if (idx < 5) {
-            return <div key={idx}></div>;
+            return (
+              <div key={idx}>
+                <h4>{elem}°C</h4>
+                <div className="mobile-week-icon">
+                  {" "}
+                  <IconsDisplay weatherMain={weekWeather[idx]} />
+                </div>
+              </div>
+            );
           }
         })}
+      </div>
+      <div id="mobile-weather-details">
+        <div id="mobile-today-tempurature">
+          {/* <h1>{Math.round(cityData.main.temp - 273.15)}°C</h1> */}
+          <h1>28°C</h1>
+          <div id="mobile-today-temp-icon">
+            {/* <IconsDisplay weatherMain={cityData.weather[0].main} /> */}
+            <IconsDisplay weatherMain={"haze"} />
+          </div>
+        </div>
+        <div id="mobile-graph-div">
+          <Line data={graphData}></Line>
+        </div>
+        <div id="mobile-pressure-humidity">
+          <div>
+            <h4>Pressure</h4>
+            <p>1013 hpa</p>
+          </div>
+          <div>
+            <h4>Humidity</h4>
+            <p>93%</p>
+          </div>
+        </div>
       </div>
     </div>
   );

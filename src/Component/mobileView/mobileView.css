@@ -7,13 +7,13 @@
 #mobile-search-box {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   width: 90%;
   height: 30px;
   margin: auto;
   margin-top: 10px;
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.16);
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -25,12 +25,13 @@
   border: none;
 }
 
-#mobile-search-button {
+.mobile-search-icon {
   width: 10%;
   height: 100%;
   outline: none;
   border: none;
   background: none;
+  cursor: pointer;
 }
 
 #mobile-weeks-main-div {
@@ -42,14 +43,58 @@
   margin: auto;
   margin-top: 20px;
   overflow-x: scroll;
-  border: 1px solid red;
 }
 
 #mobile-weeks-main-div > div {
-  width: 19%;
-  border: 1px solid red;
+  width: 15%;
+  padding: 5px;
 }
 
 #mobile-weeks-main-div > div:nth-child(2) {
-  border: 1px solid blue;
+  border: 2px solid rgb(49, 164, 209);
+}
+
+.mobile-week-icon {
+  width: 40px;
+  height: 40px;
+}
+
+#mobile-weather-details {
+  width: 90%;
+  margin: auto;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 10px;
+}
+
+#mobile-today-tempurature {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+#mobile-today-temp-icon {
+  width: 80px;
+  height: 80px;
+}
+
+#mobile-pressure-humidity {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#mobile-pressure-humidity > div {
+  background: rgb(226, 226, 226);
+  width: 40%;
+  text-align: left;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#mobile-pressure-humidity > div > h4,
+#mobile-pressure-humidity > div > p {
+  margin: 0;
 }

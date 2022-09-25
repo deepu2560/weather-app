@@ -1,107 +1,47 @@
 import React from "react";
 
-export const IconsDisplay = ({ weatherMain }) => {};
-
-const data = {base
-: 
-"stations"
-clouds
-: 
-all
-: 
-40
-[[Prototype]]
-: 
-Object
-cod
-: 
-200
-coord
-: 
-lat
-: 
-28.6667
-lon
-: 
-77.2167
-[[Prototype]]
-: 
-Object
-dt
-: 
-1664114650
-id
-: 
-1273294
-main
-: 
-feels_like
-: 
-304.47
-humidity
-: 
-74
-pressure
-: 
-1007
-temp
-: 
-301.2
-temp_max
-: 
-301.2
-temp_min
-: 
-301.2
-[[Prototype]]
-: 
-Object
-name
-: 
-"Delhi"
-sys
-: 
-country
-: 
-"IN"
-id
-: 
-9165
-sunrise
-: 
-1664066447
-sunset
-: 
-1664109906
-type
-: 
-1
-[[Prototype]]
-: 
-Object
-timezone
-: 
-19800
-visibility
-: 
-4000
-weather
-: 
-Array(1)
-0
-: 
-{id: 721, main: 'Haze', description: 'haze', icon: '50n'}
-length
-: 
-1
-[[Prototype]]
-: 
-Array(0)
-wind
-: 
-deg
-: 
-0
-speed
-: 
-0}
+export const IconsDisplay = ({ weatherMain }) => {
+  if (weatherMain == "haze") {
+    return (
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/1779/1779807.png"
+        style={{ width: "100%", height: "100%" }}
+      />
+    );
+  } else if (weatherMain == "sunny") {
+    return (
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/2698/2698194.png"
+        style={{ width: "100%", height: "100%" }}
+      />
+    );
+  } else if (weatherMain == "rainy") {
+    return (
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/3313/3313966.png"
+        style={{ width: "100%", height: "100%" }}
+      />
+    );
+  } else if (weatherMain == "extreme") {
+    return (
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/2337/2337478.png"
+        style={{ width: "100%", height: "100%" }}
+      />
+    );
+  } else if (weatherMain == "snow") {
+    return (
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/2315/2315377.png"
+        style={{ width: "100%", height: "100%" }}
+      />
+    );
+  } else {
+    return (
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/2766/2766099.png"
+        style={{ width: "100%", height: "100%" }}
+      />
+    );
+  }
+};
