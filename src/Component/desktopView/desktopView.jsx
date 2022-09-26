@@ -29,7 +29,7 @@ ChartJS.register(
 );
 
 // main app function
-export const DesktopView = () => {
+export const DesktopView = ({ locState }) => {
   // Today date
   const date = new Date();
 
@@ -153,6 +153,12 @@ export const DesktopView = () => {
     cod: 200,
   };
 
+  useEffect(() => {
+    if (locState) {
+      setcity(() => locState);
+    }
+  });
+
   // searched data initialy with fake data
   const [cityData, setcityData] = useState(sampleData);
 
@@ -160,7 +166,7 @@ export const DesktopView = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d41c6d489e0a0b8a4a7159509790db66`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=31c3591dbeafd3c289a18efd19ac5077`,
       )
       .then((res) => {
         let data = res.data;
@@ -211,7 +217,7 @@ export const DesktopView = () => {
   useEffect(() => {
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,alerts,minutely,current&appid=d41c6d489e0a0b8a4a7159509790db66`,
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,alerts,minutely,current&appid=31c3591dbeafd3c289a18efd19ac5077`,
       )
       .then((res) => {
         let data = res.data;
@@ -227,7 +233,7 @@ export const DesktopView = () => {
 
     axios
       .get(
-        `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=d41c6d489e0a0b8a4a7159509790db66`,
+        `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=31c3591dbeafd3c289a18efd19ac5077`,
       )
       .then((res) => {
         let data = res.data.list[0].main.aqi;

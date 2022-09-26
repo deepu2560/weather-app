@@ -64,7 +64,7 @@ function App() {
   return (
     <div className="App">
       <div id="desktopView">
-        <DesktopView />
+        <DesktopView locState={locState} />
       </div>
       <div id="mobileView">
         <MobileView locState={locState} />
